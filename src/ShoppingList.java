@@ -39,11 +39,13 @@ public class ShoppingList {
         }
     }
 
-    private boolean findItem (String item){
+    public boolean findItem (String item){
          return shoppingList.contains(item);
     }
     public  void clearList (){
-        shoppingList.clear();
+        if(!shoppingList.isEmpty()){
+            shoppingList.clear();
+        }
     }
 
     public void printList (){
@@ -52,7 +54,5 @@ public class ShoppingList {
             System.out.println(s);
         }
     }
-
-
 }
 
