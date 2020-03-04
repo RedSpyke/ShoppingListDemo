@@ -8,11 +8,17 @@ public class ShoppingList {
         if (!findItem(item)){
             shoppingList.add(item);
         }
+        else{
+            System.out.println("Item already on the list");
+        }
     }
 
     public static void removeItem (String item){
         if (findItem(item)){
             shoppingList.remove(item);
+        }
+        else{
+            System.out.println("Item is not on the list");
         }
     }
 
@@ -23,7 +29,15 @@ public class ShoppingList {
         return -1;
     }
 
-
+    public static void modifyItem (String currentItem, String newItem){
+        if (findItem(currentItem)){
+            int localIndex = itemIndex(currentItem);
+            shoppingList.set(localIndex,newItem);
+        }
+        else{
+            System.out.println("Item is not on the list");
+        }
+    }
 
     private static boolean findItem (String item){
          return shoppingList.contains(item);
@@ -33,7 +47,10 @@ public class ShoppingList {
     }
 
     public static void printList (){
-
+        System.out.println("You have " + shoppingList.size() + " items in your list.");
+        for (String s : shoppingList) {
+            System.out.println(s);
+        }
     }
 
 
